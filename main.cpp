@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,6 +16,10 @@ int main()
         cout<< "3.- Inicializar " << endl;
         cout<< "4.- Frente " << endl;
         cout<< "5.- Ultimo " << endl;
+        cout<< "6.- Ordenar " << endl;
+        cout<< "7.- Insertar " << endl;
+        cout<< "8.- Eliminar " << endl;
+        cout<< "9.- Eliminar ultimo " << endl;
         cout<< "0.- salir  " << endl;
 
         getline(cin, op);
@@ -74,6 +79,64 @@ int main()
                 
             }
         }
+        else if (op == "6")
+        {
+            //sort(enteros.begin(), enteros.end());
+            sort(enteros.begin(), enteros.end(), greater<int>());
+        }
+        else if (op == "7")
+        {
+            size_t p;
+            int entero;
+
+            cout << "Posicion: ";
+            cin>> p;
+            cout<< "Entero: ";
+            cin>> entero; cin.ignore();
+
+            if (p >= enteros.size())
+            {
+                cout <<"Posicion no valida..." <<endl;
+            }
+            else
+            {
+                enteros.insert(enteros.begin()+p, entero);
+            }
+            
+        }
+        else if (op == "8")
+        {
+            size_t p;
+
+            cout << "Posicion: ";
+            cin >> p; cin.ignore();
+
+            if (p >= enteros.size())
+            {
+                cout <<"Posicion no valida..."<< endl;
+            }
+            else
+            {
+                enteros.erase(enteros.begin()+p);
+            }
+            
+               
+        }
+        else if (op == "9")
+        {
+            if (enteros.empty())
+            {
+                cout << "vector vacio..."<<endl;
+            }
+            else
+            {
+                enteros.pop_back();
+            }
+            
+        }
+        
+        
+        
         
         else if(op=="0")
         {
